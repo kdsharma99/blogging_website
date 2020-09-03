@@ -1,1 +1,1 @@
-# blogging_website
+# Configurable Blogging Website
