@@ -1,0 +1,22 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/blog",
+        "prod_uri":"mysql://root:@localhost/blog",
+        "blog_name":"Pen It Down",
+        "tag_line":"hey i made it",
+        "fb_url":"https://fb.com",
+        "tw_url":"https://twitter.com",
+        "git_url":"https://github.com",
+        "gmail_user":"infinitedimension7@gmail.com",
+        "gmail_pass":"premlata3",
+        "admin":"sharma.vasundhara7@gmail.com",
+        "about_text":"This is all about bolg",
+        "No_of_posts":2,
+        "login_img":"bootstrap-solid.svg",
+        "admin_login":"admin@admin.com",
+        "admin_pswd":"codeneverlies",
+        "upload_location":"D:\\configureable dynamic blog site using flask"
+    }
+}

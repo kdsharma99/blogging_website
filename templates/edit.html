@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header -->
+  <!-- <header class="masthead" style="background-image: url('{{url_for('static',filename='img/home-bg.jpg')}}')"> -->
+    <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Edit Posts</h1>
+            <!-- <span class="subheading">{{params['tag_line']}}</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  {% with messages = get_flashed_messages(with_categories=true)%}
+{% if messages %}
+{% for category,messages in messages %}
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+  {{messages}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+  <!-- Main Content -->
+  <div class="container">
+    <div class="clearfix">
+      <a class="btn btn-primary float-left" href="/dashboard">Back to Dashboard</a>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 col-md-10 mx-auto">
+        <form name="sentMessage" id="contactForm" novalidate action="/edit/{{postss.Sno}}" method="POST">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Title</label>
+                <input type="text" class="form-control"  placeholder="Tittle" id="tittle" name='tittle' required data-validation-required-message="Please tittle." value="{{postss.title}}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Slug</label>
+                <input type="text" class="form-control" value="{{postss.slug}}" placeholder="Slug" id="slug" name='slug' required data-validation-required-message="Please enter slug.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Author</label>
+                <input type="tel" class="form-control" value="{{postss.author}}" placeholder="Author" id="author" name='author' required data-validation-required-message="Please enter Author name">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Category</label>
+                <input type="text" class="form-control" value="{{postss.category}}" placeholder="Category" id="category" name='category' required data-validation-required-message="Please specify category">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Content</label>
+                <textarea rows="7" class="form-control" placeholder="Content" id="content" name='content' required data-validation-required-message="Please enter content.">{{postss.content}}</textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Sub title</label>
+                <textarea rows="2" class="form-control" placeholder="Subtitle" id="pickup" name='pickup' required data-validation-required-message="Please enter Subtitle.">{{postss.pickup}}</textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Image Name</label>
+                <input type="text" class="form-control" value="{{postss.img_file}}" placeholder="Image name" id="imgfile" name='imgfile' required data-validation-required-message="Please specify category">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">Edit</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  {% endblock %}
+
+  
